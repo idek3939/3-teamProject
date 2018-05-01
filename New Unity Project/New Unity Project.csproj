@@ -212,28 +212,28 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/1601337/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/1601321/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/1601337/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/1601321/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AgentControl.cs" />
-    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\BobbingObject.cs" />
-    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\BobbingObjectEditor.cs" />
-    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\Rotator.cs" />
-    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\TextureScroll.cs" />
-    <Compile Include="Assets\Cubits_Warrior\Resources\JumpScript.cs" />
-    <Compile Include="Assets\Cubits_Warrior\Resources\StandAloneScript.cs" />
-    <Compile Include="Assets\Cubits_Warrior\Resources\Tester_Controller.cs" />
-    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
-    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
-    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
-    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
-    <Compile Include="Assets\ObjectRotate.cs" />
-    <Compile Include="Assets\SceneLoadScript.cs" />
-    <Compile Include="Assets\Test_camera.cs" />
+    <Compile Include="Assets\Colorful_World\Colorful_World\Important, Resoucres\Scripts\BobbingObject.cs" />
+    <Compile Include="Assets\Colorful_World\Colorful_World\Important, Resoucres\Scripts\BobbingObjectEditor.cs" />
+    <Compile Include="Assets\Colorful_World\Colorful_World\Important, Resoucres\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Colorful_World\Colorful_World\Important, Resoucres\Scripts\TextureScroll.cs" />
+    <Compile Include="Assets\Cubits_Warrior\Cubits_Warrior\Resources\JumpScript.cs" />
+    <Compile Include="Assets\Cubits_Warrior\Cubits_Warrior\Resources\StandAloneScript.cs" />
+    <Compile Include="Assets\Cubits_Warrior\Cubits_Warrior\Resources\Tester_Controller.cs" />
+    <Compile Include="Assets\FarlandSkies\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
+    <Compile Include="Assets\FarlandSkies\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
+    <Compile Include="Assets\FarlandSkies\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+    <Compile Include="Assets\FarlandSkies\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
+    <Compile Include="Assets\Script\AgentControl.cs" />
+    <Compile Include="Assets\Script\ObjectRotate.cs" />
+    <Compile Include="Assets\Script\SceneLoadScript.cs" />
+    <Compile Include="Assets\Script\Test_camera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
