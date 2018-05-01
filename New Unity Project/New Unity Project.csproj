@@ -212,34 +212,28 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/1601321/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/1601337/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/1601321/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/1601337/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AgentControl.cs" />
+    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\BobbingObject.cs" />
+    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\BobbingObjectEditor.cs" />
+    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Colorful_World\Important, Resoucres\Scripts\TextureScroll.cs" />
+    <Compile Include="Assets\Cubits_Warrior\Resources\JumpScript.cs" />
+    <Compile Include="Assets\Cubits_Warrior\Resources\StandAloneScript.cs" />
+    <Compile Include="Assets\Cubits_Warrior\Resources\Tester_Controller.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
+    <Compile Include="Assets\ObjectRotate.cs" />
     <Compile Include="Assets\SceneLoadScript.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
-    <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
-    <None Include="Assets\UnityChan\license.txt" />
+    <Compile Include="Assets\Test_camera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
