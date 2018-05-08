@@ -231,7 +231,13 @@
     <Compile Include="Assets\FarlandSkies\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
     <Compile Include="Assets\FarlandSkies\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
     <Compile Include="Assets\Script\AgentControl.cs" />
+    <Compile Include="Assets\Script\LobbyPlayerScript.cs" />
+    <Compile Include="Assets\Script\LobbyUiScript.cs" />
+    <Compile Include="Assets\Script\LocalDiscovery.cs" />
+    <Compile Include="Assets\Script\NetworkScript.cs" />
     <Compile Include="Assets\Script\ObjectRotate.cs" />
+    <Compile Include="Assets\Script\PlayerScript.cs" />
+    <Compile Include="Assets\Script\PlayingLobbyManager.cs" />
     <Compile Include="Assets\Script\SceneLoadScript.cs" />
     <Compile Include="Assets\Script\SphereScript.cs" />
     <Compile Include="Assets\Script\Test_camera.cs" />
