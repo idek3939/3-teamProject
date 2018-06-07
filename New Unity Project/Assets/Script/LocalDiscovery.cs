@@ -4,8 +4,6 @@ using UnityEngine.Networking;
 using UnityEngine.Events;
 using UnityEngine;
 
-//UnityEventを継承したクラスを取り扱うクラス
-
 public class LocalDiscovery : NetworkDiscovery
 {
     //UnityEventを継承したクラスを作成　string , string　を引数に

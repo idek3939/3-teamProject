@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-// ロビーで表示される3Dのプレーヤーオブジェクト設定。
+//ロビーで表示される3Dのプレーヤーオブジェクト設定。
 
 public class LobbyPlayerScript : NetworkLobbyPlayer
 {
+    //[SyncVar]とはサーバー上の値などをクライアント側に同期させるためのもの
+    //使える数は32まででintやfloatなど基本型のみ
+    //そして新たにhookを追加。hookとは値が同期された際に実行される処理を設定することを意味する
     [SyncVar(hook = "OnNameChanged")]
-    public string playerName;
+    public string playerName;//名前
 
     [SyncVar(hook = "OnCharacterTypeChanged")]
-    public int characterType;
+    public int characterType;//キャラモデルのタイプ
 
     [SerializeField]
-    public LobbyUiScript[] playerNameInput;
+    public LobbyUiScript[] playerNameInput;//名前
 
     [SerializeField]
-    private GameObject[] characterTypeModels;
+    private GameObject[] characterTypeModels;//キャラモデルのタイプ
 
     public static LobbyPlayerScript localPlayer { get; private set; }
 
@@ -41,6 +44,7 @@ public class LobbyPlayerScript : NetworkLobbyPlayer
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
         transform.localScale = Vector3.one;
+
         SetupUI();
     }
 

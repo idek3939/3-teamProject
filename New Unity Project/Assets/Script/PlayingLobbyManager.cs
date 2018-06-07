@@ -64,7 +64,7 @@ public class PlayingLobbyManager : NetworkLobbyManager
         return lobbyPlayerPositions[slot];
     }
 
-    //各プレイヤーのscene nameがmainじゃなければアクティブに設定
+    //各プレイヤーのscene nameがmainじゃなければオブジェクトをアクティブに設定
     private void EnablePlayerPositions(bool b)
     {
         lobbyPlayerPositions.ToList().ForEach(t => t.gameObject.SetActive(b));
@@ -99,6 +99,7 @@ public class PlayingLobbyManager : NetworkLobbyManager
         var lp = conn.playerControllers.FirstOrDefault(p => p.playerControllerId == playerControllerId).unetView.GetComponent<LobbyPlayerScript>();
         var prefab = gamePlayerPrefabs[lp.characterType];
         var spawnPos = GetStartPosition();
+        //プレファブをインスタンス化
         var obj = Instantiate(prefab, spawnPos.position, spawnPos.rotation);
         return obj.gameObject;
     }
@@ -249,7 +250,7 @@ public class PlayingLobbyManager : NetworkLobbyManager
     //------------------------------------------マッチメイク--------------------------------------------------
 
     #region match make
-
+    //NetworkMatch.CreateMatch のリクエストがサーバー上で処理されるときに発生するコールバック
     public override void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
     {
         Info("OnMatchCreate " + success + " /" + extendedInfo + "/" + matchInfo);
@@ -263,6 +264,7 @@ public class PlayingLobbyManager : NetworkLobbyManager
         }
     }
 
+    //マッチに入室したときに実行される
     public override void OnMatchJoined(bool success, string extendedInfo, MatchInfo matchInfo)
     {
         Info("OnMatchJoined " + success + " /" + extendedInfo + "/" + matchInfo);
@@ -275,35 +277,48 @@ public class PlayingLobbyManager : NetworkLobbyManager
             joinedInfo = matchInfo;
         }
     }
+
+    //マッチの一覧を ListMatches() から取得した場合に実行されます
     public override void OnMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> matchList)
     {
         Info("OnMatchList " + success + " /" + extendedInfo + "\nmatchlist:\n" + string.Join("\n", matchList.Select(m => m.ToString()).ToArray()));
     }
+
+    //[NetworkMatch.SetMatchAttributes] のリクエストがサーバー上で処理されるときに発生するコールバック
     public override void OnSetMatchAttributes(bool success, string extendedInfo)
     {
         Info("OnMatchCreate " + success + " /" + extendedInfo);
     }
+
+    //NetworkMatch.DestroyMatch のリクエストがサーバー上で処理されるときに発生するコールバック
     public override void OnDestroyMatch(bool success, string extendedInfo)
     {
         Info("OnDestroyMatch " + success + "/" + extendedInfo);
     }
+
+    //新しいマッチの作成（この関数を呼び出したクライアントがホストになる）
     protected void CreateRoom(string roomName)
     {
         roomHostInfo = null;
         matchMaker.CreateMatch(roomName, matchSize, true, "", "", "", 0, requestDomain, OnMatchCreate);
     }
 
+    //進行中のマッチを一覧表示させる関数
     protected void ListMatches()
     {
         matchMaker.ListMatches(0, 100, "", false, 0, requestDomain, OnMatchList);
     }
 
+    //MatchMakerに現在のクライアントが特定のマッチに参加したいことを伝えるために使用される関数
     protected void JoinRoom(MatchInfoSnapshot m)
     {
         joinedInfo = null;
         matchMaker.JoinMatch(m.networkId, "", "", "", 0, requestDomain, OnMatchJoined);
     }
 
+    //リクエストドメイン
+    //同じドメイン内のリクエストのみが相互にインターフェースできる
+    //値は1に設定
     private const int requestDomain = 1;
 
     #endregion
@@ -312,56 +327,77 @@ public class PlayingLobbyManager : NetworkLobbyManager
 
     #region NetworkManager
 
+    //新しいクライアントが接続に成功したときサーバー上で呼び出される
     public override void OnServerConnect(NetworkConnection conn)
     {
         base.OnServerConnect(conn);
         Info("OnServerConnect");
     }
+
+    //クライアントの接続が失われたか切断されたときにサーバー上で呼び出される
     public override void OnServerDisconnect(NetworkConnection conn)
     {
         base.OnServerDisconnect(conn);
         Info("OnServerDisconnect");
     }
+
+    //ServerChangeScene() のサーバーで読み込みが開始された場合、シーンが完全に読み込まれたときサーバー上で呼び出される
     public override void OnServerSceneChanged(string sceneName)
     {
         base.OnServerSceneChanged(sceneName);
         Info("OnServerSceneChanged " + sceneName);
     }
+
+    //クライアントが起動したときに呼び出されるコールバック
     public override void OnStartClient(NetworkClient lobbyClient)
     {
         base.OnStartClient(lobbyClient);
         Info("OnStartClient");
     }
+
+    //ホストが起動されたときに実行されるコールバック
     public override void OnStartHost()
     {
         base.OnStartHost();
         Info("OnStartHost");
     }
+
+    //ホストが起動したのを含む、サーバーが起動したときに呼び出されるコールバック
     public override void OnStartServer()
     {
         base.OnStartServer();
         Info("OnStartServer");
     }
+
+    //クライアントが停止したときに呼び出されるコールバック
     public override void OnStopClient()
     {
         base.OnStopClient();
         Info("OnStopClient");
     }
+
+    //ホストが停止したときに呼び出されるコールバック
     public override void OnStopHost()
     {
         base.OnStopHost();
         Info("OnStopHost");
     }
+
+    //サーバーに接続したときクライアント上で呼び出される
     public override void OnClientConnect(NetworkConnection conn)
     {
         Info("OnClientConnect");
         base.OnClientConnect(conn);
     }
+
+    //サーバーが切断されたときにクライアント上で呼び出される
     public override void OnClientDisconnect(NetworkConnection conn)
     {
         Info("OnClientDisconnect");
         base.OnClientDisconnect(conn);
     }
+
+    //サーバーによってシーンの読み込みが初期化され、シーンの読み込みが完了したときにクライアント上で呼び出されます。
     public override void OnClientSceneChanged(NetworkConnection conn)
     {
         Info("OnClientSceneChanged");
@@ -372,25 +408,43 @@ public class PlayingLobbyManager : NetworkLobbyManager
 
     //-------------------------------------------ext----------------------------------------------
 
+    //NetworkDiscoveryコンポーネントの初期化
     public void InitializeLocalDiscovery()
     {
         localDiscovery.Initialize();
     }
 
+    //コルーチン
+    //実行はStartCoroutine ("CreateRoomAndStartHost",string型)のように
     public IEnumerator CreateRoomAndStartHost(string roomName)
     {
+        //コルーチンの処理
+        //部屋名割り当て
         createdRoomName = roomName;
+
+        //NetworkManagerのマッチメーカーを起動
         StartMatchMaker();
+
+        //部屋作成
         CreateRoom(roomName);
+
+        //trueに判定されるまでコルーチンの実行を中断
         yield return new WaitUntil(() => roomHostInfo != null);
+
+        //指定ポート番号でサーバーを起動
         NetworkServer.Listen(roomHostInfo, networkPort);
+
+        //ネットワークに接続されたホストを起動
         StartHost(roomHostInfo);
     }
 
     public void StartMatchMakerAndRoomSearch()
     {
+        //NetworkManagerのマッチメーカーを起動
         StartMatchMaker();
+
         selectMatchInfo = null;
+        //マッチ表示
         ListMatches();
     }
 
@@ -399,14 +453,18 @@ public class PlayingLobbyManager : NetworkLobbyManager
         selectMatchInfo = selectInfo;
     }
 
+    //コルーチン
     public IEnumerator JoinRoomAndStartClient()
     {
         JoinRoom(selectMatchInfo);
+
         yield return new WaitUntil(() => joinedInfo != null);
+        //ネットワークに接続されたクライアントを起動
         StartClient(joinedInfo);
     }
 
-    //予期せぬ事態が発生したときに呼び出す
+    //予期せぬ事態が発生したとき
+    //通信を切る時などに呼び出す
     public void StopAll()
     {
         StopLan();
@@ -422,13 +480,16 @@ public class PlayingLobbyManager : NetworkLobbyManager
 
         if (localDiscovery.isClient || localDiscovery.isServer)
         {
+            //リッスンとブロードキャストを停止
             localDiscovery.StopBroadcast();
         }
     }
 
     public bool StartHostDiscovery()
     {
+        //コンポーネント初期化
         localDiscovery.Initialize();
+
         if (localDiscovery.StartAsClient() == false)
         {
             Debug.LogError("cannot start localDiscovery as client");

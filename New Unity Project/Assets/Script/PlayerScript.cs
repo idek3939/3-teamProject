@@ -29,11 +29,11 @@ public class PlayerScript : NetworkBehaviour
     //playerの移動(走り)
     [SerializeField] private float playerSpeedDash = 7.0f;
     //拡大率
-    [SerializeField] private float playerScale = 1f;
+    [SerializeField] private float playerScale = 3f;
     //振り向き適応速度
     [SerializeField] private float applySpeed = 0.2f;
     //カメラの水平回転を参照する用
-    [SerializeField] private Test_camera refCamera;
+    private Test_camera refCamera;
 
     //コマンド周り
     [SerializeField] private KeyCode keyMoveUp = KeyCode.W;//前
@@ -41,15 +41,17 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField] private KeyCode keyMoveDown = KeyCode.S;//後ろ
     [SerializeField] private KeyCode keyMoveRight = KeyCode.D;//右
 
+    public static PlayerScript ownePlayerInstance { get; private set; }
+
     [SyncVar] public string playerName = "player";
 
     void Start()
     {
-        if (isLocalPlayer)
-        {
-            //textの値を設定
-            text = GameObject.Find("MsgText").GetComponent<Text>();
-        }
+        //if (isLocalPlayer)
+        //{
+        //    //textの値を設定
+        //    text = GameObject.Find("MsgText").GetComponent<Text>();
+        //}
     }
 
     void Update()
@@ -60,6 +62,7 @@ public class PlayerScript : NetworkBehaviour
         //ローカルなら実行
         if (isLocalPlayer)
         {
+            ownePlayerInstance = this;
             //※プレイヤーの移動処理などを書きます
             Move();
         }
@@ -111,7 +114,7 @@ public class PlayerScript : NetworkBehaviour
 
 
    //[ClientCallback]
-    void Move()
+    private void Move()
     {
         if (!isLocalPlayer) return;
 

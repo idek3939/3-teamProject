@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class LobbyUiScript : MonoBehaviour
 {
-
     public InputField inputField;
     public Image[] backgrounds;
 
