@@ -15,7 +15,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.035
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 9efdca230cf6c1949a45d042900a9b23, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 53f78035e3c8974489a184db481c8671, type: 2}
   m_HaloStrength: 0
   m_FlareStrength: 1
   m_FlareFadeSpeed: 1
@@ -39,8 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000115753224, g: 0.00023205405, b: 0.00028707882,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.25097647, g: 0.25097647, b: 0.25097647, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -61181,7 +61180,7 @@ MonoBehaviour:
   - {fileID: 974281486}
   - {fileID: 1950021254}
   destPoint: 0
-  player: {fileID: 1399233517}
+  player: {fileID: 0}
 --- !u!4 &1581764329 stripped
 Transform:
   m_PrefabParentObject: {fileID: 423276, guid: 002013ed19cbfc84c9a956e08ea20ded, type: 2}

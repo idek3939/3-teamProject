@@ -278,14 +278,29 @@
     <Compile Include="Assets\SapphiArt\SapphiArtchan\Scripts\AnimationManagerUI.cs" />
     <Compile Include="Assets\SapphiArt\SapphiArtchan\Scripts\SapphiArtChan_AnimManager.cs" />
     <Compile Include="Assets\Script\AgentControl.cs" />
+    <Compile Include="Assets\Script\AutDestroyParticSystem.cs" />
+    <Compile Include="Assets\Script\CharaSynchronizerTest.cs" />
+    <Compile Include="Assets\Script\Combat.cs" />
+    <Compile Include="Assets\Script\Dialog.cs" />
     <Compile Include="Assets\Script\DragonRandomStart.cs" />
     <Compile Include="Assets\Script\GateOpen.cs" />
+    <Compile Include="Assets\Script\LobbyPlayerScript.cs" />
+    <Compile Include="Assets\Script\LobbyUiScript.cs" />
+    <Compile Include="Assets\Script\LocalDiscovery.cs" />
+    <Compile Include="Assets\Script\NetConnectorSample.cs" />
+    <Compile Include="Assets\Script\NetworkScript.cs" />
     <Compile Include="Assets\Script\ObjectRotate.cs" />
     <Compile Include="Assets\Script\Patrol.cs" />
+    <Compile Include="Assets\Script\PlayerControl.cs" />
+    <Compile Include="Assets\Script\PlayerScript.cs" />
+    <Compile Include="Assets\Script\PlayingLobbyManager.cs" />
+    <Compile Include="Assets\Script\PlayingLobbyUi.cs" />
+    <Compile Include="Assets\Script\RoomList.cs" />
     <Compile Include="Assets\Script\SceneLoadScript.cs" />
     <Compile Include="Assets\Script\SeachPlayer.cs" />
     <Compile Include="Assets\Script\SphereScript.cs" />
     <Compile Include="Assets\Script\Test_camera.cs" />
+    <Compile Include="Assets\Script\TestCPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
