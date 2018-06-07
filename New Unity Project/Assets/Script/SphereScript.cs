@@ -11,7 +11,9 @@ public class SphereScript : NetworkBehaviour
     Text text;
 
     //startTimeをもとに数秒経過するとどのクライアントでも同じ値が表示される
-    private static System.DateTime startTime = System.DateTime.Now;
+   // private static System.DateTime startTime = System.DateTime.Now;
+
+    private static System.DateTime startTime;
 
     //[SyncVar]とはサーバー上の値などをクライアント側に同期させるためのもの
     //使える数は32まででintやfloatなど基本型のみ
@@ -38,7 +40,7 @@ public class SphereScript : NetworkBehaviour
         //ローカルなら実行
         if (isLocalPlayer)
         {
-            //※プレイヤーの移動処理を書きます
+            //※プレイヤーの移動処理などを書きます
 
 
             //UpdateCount();
@@ -56,8 +58,14 @@ public class SphereScript : NetworkBehaviour
     //    text.text = "Client: " + count;
     //}
 
-    //[ServerCallback]
-    //はサーバー側で実行する
+    //OnStartServer()はサーバー起動時に実行されるメソッド
+    public override void OnStartServer()
+    {
+        //初期化される
+        startTime = System.DateTime.Now;
+    }
+
+    //[ServerCallback] はサーバー側で実行する
     [ServerCallback]
     void Count()
     {
@@ -77,8 +85,7 @@ public class SphereScript : NetworkBehaviour
         }
     }
 
-    //[ClientCallback]
-    //はクライアント側で実行する
+    //[ClientCallback] はクライアント側で実行する
     //[ClientCallback]
     //void UpdateCount()
     //{
